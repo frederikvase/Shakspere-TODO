@@ -281,7 +281,7 @@ function daysUntil(dateString)
     let labourlessDateArray = localStorage.multiDates.split(', ');
     for (let i = 1; i < labourlessDateArray.length; i++)
     {
-        if (new Date(labourlessDateArray[i]).getTime() < new Date(dateString).getTime())
+        if (new Date(labourlessDateArray[i]).getTime() <= new Date(dateString).getTime())
         {
             daysToDate--;
         }
