@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style/shakspere.css">
+    <link rel="stylesheet" href="style/datePicker.css">
+    
+    <!-- Title and Icons -->
+    <title>Shakspere TO-DO</title>
+    <link rel="icon" type="image/x-icon" href="resources/william-shakespeare-icon.jpg">
+  </head>
+
+  <body style="text-align: center;" onload="reload()">
+    <!-- Header -->
+    <div id="myDIV" class="header">
+      <h2 style="margin:5px"><i>To Do or Not To Do, That is the Question</i></h2>
+
+      <input class="in" type="text" id="name" placeholder="Task name..." autocomplete="off">
+      <input class="in" type="number" id="time" placeholder="Hours of work">
+      <input class="in" type="date" style="width: auto;" id="date" name="date" lang="ne">
+
+      <span onclick="createItem()" class="addBtn">Add</span>
+    </div>
+    
+    <!-- To-Do List Items -->
+    <ul id="myUL">
+    </ul>
+
+    <!-- Modal for List Items -->
+    <div style="text-align: left;" id="myModal" class="modal">
+      <div class="modal-content">
+          <span class="closeModal">&times;</span>
+          <h2 id="tasktitle" style="text-align: center; margin-top:-0px; margin-bottom: -15px;">Title placeholder</h2>
+          
+          <!-- Slider -->
+          <h4 for="slider" id="sliderlabel">Thou hast laboured for 0 hours and 0 minutes</h4>
+          <br>
+          <input type="range" id="slider" name="slider" min="0" max="6000" step="0" value="50" oninput="updateModalSlider(this)">
+          <br>
+
+          <!-- Edit Task -->
+          <button type="button" class="collapsible">Edit task</button>
+          <div class="content">
+            <table style="font-size: 90%;">
+              <tr>
+                <th>Task name</th>
+                <th>Hours of work</th>
+                <th>Due Date</th>
+              </tr>
+              <tr>
+                <th><input oninput="updateModalTitle()" type="text" id="name_m" placeholder="Task name"></th>
+                <th><input oninput="updateModalTime()" type="number" id="time_m" placeholder="Hours of work"></th>
+                <th><input oninput="updateModalDate()" type="date" style="width:auto;" id="date_m" name="date"></th>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Description -->
+          <h4 style="padding-bottom: 5px; margin-bottom: 5px;">Description:</h4>
+          <div id="description" contenteditable="true" style="padding: 5px;" margin-top="0px">...</div>
+      </div>
+    </div>
+
+    <!-- Display remaining labour -->
+    <h3 style="text-align:center" id="labourTime">Thou hast no further labour for this day.</h3>
+
+    <!-- Daily To-Do List Poem-->
+    <img style="width: 70%;" src="resources/Top fleur.png" alt="idk">
+    <pre id="dailySonnet"></pre>
+    <img style="width: 13%;" src="resources/Bottom fleur.png" alt="idk">
+    <br><br><br><br>
+
+    <!-- Labourless days calender -->
+    <button type="button" class="collapsible">Manage labourless days</button>
+    <div class="content">
+      <p>Upon these dates labour will be most inconvinient;</p>
+      <div id="datePick"></div>
+      <br>
+      </ul>
+    </div>
+    
+    <!-- Jquery stuff -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/dubrox/Multiple-Dates-Picker-for-jQuery-UI@master/jquery-ui.multidatespicker.js"></script>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="scripts/constants.js"></script>
+    <script type="text/javascript" src="scripts/shakspere.js"></script>
+    <script type="text/javascript" src="scripts/modal.js"></script>
+    <script type="text/javascript" src="scripts/collapsible.js"></script>
+    <script type="text/javascript" src="scripts/dailySonnets.js"></script>
+  </body>
+</html>
